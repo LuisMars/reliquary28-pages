@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reliquary28.luismars.com/sitemap.xml

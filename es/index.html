@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reliquary28: juego de escaramuzas grimdark para dos, imprime y juega</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dos huestes se disputan dos reliquias a la vista sobre cualquier cuadrícula que puedas dibujar. Juego de escaramuzas gratuito para dos jugadores, unos 20 minutos, con las miniaturas que ya tienes.">
+<meta name="theme-color" content="#f5f5f0">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://reliquary28.luismars.com/es/">
+<link rel="alternate" hreflang="en" href="https://reliquary28.luismars.com/">
+<link rel="alternate" hreflang="es" href="https://reliquary28.luismars.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://reliquary28.luismars.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reliquary28">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Reliquary28: juego de escaramuzas grimdark para dos, imprime y juega">
+<meta property="og:description" content="Dos huestes se disputan dos reliquias a la vista sobre cualquier cuadrícula que puedas dibujar. Juego de escaramuzas gratuito para dos jugadores, unos 20 minutos, con las miniaturas que ya tienes.">
+<meta property="og:url" content="https://reliquary28.luismars.com/es/">
+<meta property="og:image" content="https://reliquary28.luismars.com/img/social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Reliquary28: una carta impresa con un emblema de calavera en xilografía y un diagrama de movimiento de cinco por cinco.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reliquary28: juego de escaramuzas grimdark para dos, imprime y juega">
+<meta name="twitter:description" content="Dos huestes se disputan dos reliquias a la vista sobre cualquier cuadrícula que puedas dibujar. Juego de escaramuzas gratuito para dos jugadores, unos 20 minutos, con las miniaturas que ya tienes.">
+<meta name="twitter:image" content="https://reliquary28.luismars.com/img/social.png">
+<meta name="twitter:image:alt" content="Reliquary28: una carta impresa con un emblema de calavera en xilografía y un diagrama de movimiento de cinco por cinco.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preload" href="../fonts/blackletter-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/P052-Roman-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/DejaVuSerifCondensed-Regular-subset.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Game","name":"Reliquary28","alternateName":"Reliquary28","url":"https://reliquary28.luismars.com/es/","description":"Dos huestes se disputan dos reliquias a la vista sobre cualquier cuadrícula que puedas dibujar. Juego de escaramuzas gratuito para dos jugadores, unos 20 minutos, con las miniaturas que ya tienes.","image":"https://reliquary28.luismars.com/img/social.png","inLanguage":"es","genre":["Juego de mesa","Wargame de miniaturas","Juego de estrategia abstracta","Juego de escaramuzas"],"keywords":"imprime y juega, wargame de escaramuzas, Onitama, grimdark, dos jugadores, miniaturas, juego de mesa, PDF gratis","numberOfPlayers":{"@type":"QuantitativeValue","minValue":2,"maxValue":2,"unitText":"players"},"timeRequired":"PT20M","typicalAgeRange":"12-","isAccessibleForFree":true,"author":{"@type":"Person","name":"Luis Mars"},"publisher":{"@type":"Person","name":"Luis Mars"},"gameItem":[{"@type":"Thing","name":"36 cartas en cuatro hojas A4"},{"@type":"Thing","name":"Reglas en cuadernillo A5, una hoja A4 doblada"}],"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://reliquary28.luismars.com/es/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Hojas imprimibles de Reliquary28","itemListElement":[{"@type":"ListItem","position":1,"name":"Cartas de Reliquary28","url":"https://reliquary28.luismars.com/files/reliquary-cards.es.pdf"},{"@type":"ListItem","position":2,"name":"Reglas de Reliquary28, cuadernillo A5 para doblar","url":"https://reliquary28.luismars.com/files/reliquary-booklet.es.pdf"},{"@type":"ListItem","position":3,"name":"Reglas de Reliquary28, cuatro páginas A5","url":"https://reliquary28.luismars.com/files/reliquary-booklet-pages.es.pdf"}]}</script>
+<script data-goatcounter="https://reliquary28.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<style>
+/* --- Reliquary. Ink on bone, cut from the same block as the cards. ------ */
+@font-face {
+  font-family: "Reliquary Blackletter";
+  src: url("../fonts/blackletter-subset.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "RelicSerif";
+  src: url("../fonts/P052-Roman-subset.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "RelicSerif";
+  src: url("../fonts/P052-Bold-subset.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "RelicSerif";
+  src: url("../fonts/P052-Italic-subset.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "RelicNarrow";
+  src: url("../fonts/DejaVuSerifCondensed-Regular-subset.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "RelicNarrow";
+  src: url("../fonts/DejaVuSerifCondensed-Bold-subset.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  --ink:   #1a1a1a;
+  --bone:  #f5f5f0;
+  --paper: #ffffff;
+  --ash:   #666666;
+  /* Ink, bone, ochre and rust are the four house colours, unmodified. The
+     sheets print in ink alone; the ochre and the rust exist only on screen. */
+  --ochre: #c9a227;
+  --rust:  #8b2500;
+
+  /* UnifrakturMaguntia, subset and self-hosted: an OFL blackletter that may be
+     cut down for the web, which the sheets' own JSL face may not. Nothing on a
+     reader's machine is going to be it, so the names behind it are a shape of
+     last resort. */
+  --display: "Reliquary Blackletter", "URW Bookman", Bookman, "Bookman Old Style", Georgia, serif;
+  /* Self-hosted face first, the same P052 subset the sheets embed, so the page
+     and the printed rules are set in one typeface. The system names behind it
+     cover anything outside the subset: a fallback, never a tofu. */
+  --body: "RelicSerif", P052, "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", Georgia, serif;
+  /* The slug is the site's version of the card's bar label -- short uppercase
+     labels set tight -- so it is set in the face the card sets that label in,
+     rather than in a fourth typeface the page would have to carry. Named
+     alone this used to be four faces at three weights ("Arial Black" is a 900,
+     "Nimbus Sans" and "Helvetica Neue" are 400s, Impact a condensed ultra),
+     picked by whichever the reader's machine happened to have, so the same
+     masthead came out ultra-black on Windows and plain on Android. Now it is
+     one face everywhere, and set at 700, which is the weight the printed
+     FACTION, ATTACK and RITE bars are set in. RelicNarrow ships a real bold
+     subset, so 700 selects that file and nothing is synthesised; every
+     consumer of this property below declares the weight rather than leaving it
+     to inherit a 400 from the body. */
+  --slug: "RelicNarrow", "DejaVu Serif Condensed", "DejaVu Serif", serif;
+  /* Only the card uses this, and only because the printed card does: the bar
+     labels are set in a condensed bold on the sheet. Self-hosted face first,
+     the same one the sheet embeds and the same one its textLength was measured
+     from; the system name behind it covers anything outside the subset. */
+  --narrow: "RelicNarrow", "DejaVu Serif Condensed", serif;
+
+  --sheet: 60rem;
+  --gut: clamp(1.15rem, 4vw, 3.25rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: clamp(1.02rem, 0.98rem + 0.25vw, 1.16rem);
+  line-height: 1.62;
+  overflow-wrap: break-word;
+}
+
+/* The sheet: the whole page is one printed broadside. */
+.sheet-body {
+  max-width: var(--sheet);
+  margin: 0 auto;
+  background: var(--paper);
+  border-left: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
+}
+@media (max-width: 64rem) { .sheet-body { border-left: 0; border-right: 0; } }
+
+.register { padding: clamp(2.4rem, 6vw, 4.2rem) var(--gut); }
+.register + .register { border-top: 1px solid var(--ink); }
+
+/* Double rule: the letterpress divider, thick over thin. */
+.rule2 { border: 0; height: 0; margin: 0; }
+.rule2::before, .rule2::after { content: ""; display: block; background: var(--ink); }
+.rule2::before { height: 3px; }
+.rule2::after  { height: 1px; margin-top: 3px; }
+
+/* --- type ---------------------------------------------------------------- */
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.04; }
+/* The name sets on one line at every width. Two words of blackletter broken
+   across two lines stop reading as a wordmark and start reading as a mistake. */
+h1 {
+  margin: 0; font-size: clamp(2rem, 8vw, 6rem);
+  letter-spacing: 0.005em; white-space: nowrap;
+}
+/* Balanced for the same reason as .lede: the Spanish hero heading is a word
+   longer than the English one and was dropping "rival" onto a line alone. */
+h2 { margin: 0 0 0.55em; font-size: clamp(2rem, 5.6vw, 3.15rem);
+  text-wrap: balance; }
+h3 { margin: 0 0 0.3em; font-size: clamp(1.35rem, 3.4vw, 1.7rem); }
+p { margin: 0 0 1.05em; }
+.register > p:last-child, .register > * > p:last-child { margin-bottom: 0; }
+
+.lede {
+  font-size: clamp(1.16rem, 1.02rem + 0.6vw, 1.5rem);
+  line-height: 1.5; max-width: 44ch;
+  /* Every lede sits under a display heading, where a one-word last line is
+     the most visible break on the page: the printing lede was ending on a
+     lone "not." in English and "no." in Spanish.  Balancing is per-locale by
+     construction, so it holds whatever the translation does to the length. */
+  text-wrap: balance;
+}
+
+/* The printer's slug: the voice of the sheet margins. Letterspaced capitals
+   are right for a utility label but wrong for the name, whose blackletter and
+   whose capitals both lose their shape that way, so the name opts out. */
+.slug .name { text-transform: none; letter-spacing: 0.06em; font-weight: inherit; }
+
+.slug {
+  font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: clamp(0.56rem, 1.5vw, 0.68rem);
+  line-height: 1.7; color: var(--ash); margin: 0;
+}
+.slug b { color: var(--ink); font-weight: inherit; }
+
+.eyebrow {
+  font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.22em; font-size: 0.63rem;
+  color: var(--rust); margin: 0 0 1.1em;
+}
+
+b, strong { font-weight: 700; }
+a { color: var(--ink); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--rust); }
+:focus-visible { outline: 3px solid var(--rust); outline-offset: 3px; }
+
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--ink); color: var(--bone);
+  padding: 0.7rem 1.1rem; font-family: var(--slug); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.7rem;
+}
+.skip:focus { left: 0.5rem; top: 0.5rem; z-index: 20; }
+
+/* --- masthead ------------------------------------------------------------ */
+.masthead {
+  padding: clamp(1.2rem, 3vw, 1.8rem) var(--gut) clamp(1.5rem, 3.5vw, 2.2rem);
+  text-align: center;
+}
+.ticks {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; margin: 0 0 clamp(1.2rem, 3.5vw, 2rem);
+}
+.ticks::before, .ticks::after { content: ""; flex: 1; height: 1px; background: var(--ink); }
+.ticks .lozenge {
+  width: 7px; height: 7px; background: var(--rust);
+  transform: rotate(45deg); flex: none;
+}
+
+/* Language switch: two stamped tabs, no script involved. */
+.langs {
+  display: flex; justify-content: flex-end; gap: 0;
+  padding: 0.55rem var(--gut) 0; margin: 0; list-style: none;
+  font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.16em; font-size: 0.6rem;
+}
+.langs li + li { margin-left: -1px; }
+.langs a, .langs span {
+  display: block; padding: 0.5rem 0.85rem 0.45rem;
+  border: 1px solid var(--ink); text-decoration: none;
+}
+.langs a { color: var(--ink); background: var(--paper); }
+.langs a:hover { background: var(--rust); border-color: var(--rust); color: var(--paper); }
+.langs [aria-current] { background: var(--ink); color: var(--bone); }
+
+.wordmark {
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(0.7rem, 3vw, 2.2rem);
+}
+.sigil { width: clamp(2.4rem, 8.5vw, 4.6rem); height: auto; flex: none; }
+/* Below about 350px the name at its floor size and both sigils no longer fit
+   on one line. The name is the part that has to survive, so the marks stand
+   down; they are still cut into the colophon at the foot of the page. */
+@media (max-width: 22rem) {
+  .wordmark .sigil { display: none; }
+}
+
+/* Measure kept short and the lines balanced, so the tagline never sheds a
+   single word onto a line of its own. Ignored where unsupported, where the
+   non-breaking space in the copy still holds the last two words together. */
+.subtitle {
+  font-family: var(--body); font-style: italic;
+  font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+  margin: 0.55em auto 1.5em; max-width: 34ch; color: var(--ash);
+  text-wrap: balance;
+}
+
+/* --- hero ---------------------------------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 5vw, 3.4rem);
+  align-items: center;
+}
+@media (max-width: 46rem) { .hero { grid-template-columns: 1fr; } }
+.mark {
+  width: 0.82em; height: 0.82em; display: inline-block;
+  vertical-align: -0.02em; margin-inline: 0.06em;
+}
+.diagram { width: 100%; height: auto; display: block; }
+.diagram--hero { max-width: 20rem; margin-inline: auto; }
+.diagram-note { margin: 0.9em 0 0; text-align: center; }
+
+/* --- buttons: hand-cut frames, not chips --------------------------------- */
+.actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+.btn {
+  display: inline-block;
+  font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.16em; font-size: 0.72rem;
+  /* 1.35rem, not 1.7: the Spanish pair of hero buttons is about 10 px wider
+     than its column and was stacking into two rows, which also pushed the
+     Spanish hero taller than the English one.  The narrower side padding buys
+     the room back and is invisible on a single button. */
+  padding: 1.05rem 1.35rem 0.95rem;
+  padding-left: calc(1.35rem + 0.16em);
+  border: 2px solid var(--ink);
+  background: var(--paper); color: var(--ink);
+  text-decoration: none;
+  transition: background 0.15s linear, color 0.15s linear;
+}
+.btn--ink { background: var(--ink); color: var(--bone); }
+.btn:hover { background: var(--rust); border-color: var(--rust); color: var(--paper); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* --- lists --------------------------------------------------------------- */
+.kit { list-style: none; padding: 0; margin: 0 0 1.4em; }
+.kit li { border-top: 1px solid var(--ink); padding: 0.85rem 0 0.8rem 2.1rem; position: relative; }
+.kit li:last-child { border-bottom: 1px solid var(--ink); }
+.kit li::before {
+  content: ""; position: absolute; left: 0.35rem; top: 1.45rem;
+  width: 8px; height: 8px; background: var(--ink); transform: rotate(45deg);
+}
+.kit b { display: block; }
+.kit span { color: var(--ash); }
+
+/* --- the cycle: the signature ------------------------------------------- */
+.cycle {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.7rem, 2.4vw, 1.5rem);
+  margin: 0 0 2.2rem; list-style: none; padding: 0;
+  counter-reset: step;
+}
+@media (max-width: 40rem) { .cycle { grid-template-columns: 1fr; } }
+.cycle li {
+  border: 1px solid var(--ink);
+  padding: clamp(0.9rem, 2.6vw, 1.25rem);
+  counter-increment: step;
+}
+.cycle li::before {
+  content: counter(step, upper-roman);
+  display: block; font-family: var(--slug); font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--rust); margin-bottom: 0.6rem;
+}
+.cycle p { margin: 0; font-size: 0.97rem; line-height: 1.5; }
+
+.modes { margin: 0; }
+.modes dt {
+  font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.2em; font-size: 0.72rem;
+  border-top: 1px solid var(--ink);
+  padding-top: 0.95rem; margin-top: 1.35rem;
+}
+.modes dd { margin: 0.45rem 0 0; }
+
+/* --- one card, at the size it prints -------------------------------------- */
+.plate {
+  display: grid;
+  /* The figure is drawn to a fixed print size (see .cardart below), so its
+     track only needs to grow up to that; minmax(0, max-content) - rather than
+     the bare "auto" this used to be - is what lets it actually shrink instead
+     of forcing the row wider than the sheet once the card reads landscape and
+     wants more horizontal room than the old portrait card did. */
+  grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: center;
+  margin: 0 0 clamp(2.2rem, 6vw, 3.4rem);
+}
+@media (max-width: 46rem) { .plate { grid-template-columns: 1fr; } }
+.plate figure { margin: 0; min-width: 0; }
+.plate h3 { margin-top: 0; }
+.plate p { max-width: 46ch; }
+/* 88.9 mm is the trim width now that the plate reads landscape, and the card
+   is drawn to it. Narrow phones are the one place it cannot have that, so it
+   gives way rather than overflow. */
+.cardart {
+  display: block; width: 88.9mm; max-width: 100%; height: auto;
+  background: var(--paper);
+  /* the trim line: where the scissors go, and what butts the next card */
+  outline: 1px dashed #b9b5ac;
+}
+.cardart .c-nm  { font-family: var(--display); fill: var(--ink); }
+.cardart .c-atx { font-family: var(--body); fill: var(--ink); }
+.cardart .c-bar {
+  font-family: var(--narrow); font-weight: 700; fill: var(--paper);
+}
+.plate figcaption { margin-top: 0.85rem; }
+
+/* --- downloads ----------------------------------------------------------- */
+.table-wrap { overflow-x: auto; margin-bottom: 1.6rem; }
+/* The wrapper scrolls as a last resort, but the table has to fit a 390px
+   phone without it: a Size column parked off the right edge is a size nobody
+   reads. 20rem clears the narrowest gutter, and the file names wrap. */
+table { border-collapse: collapse; width: 100%; min-width: 20rem; }
+caption {
+  text-align: left; font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.2em; font-size: 0.63rem; color: var(--ash);
+  padding-bottom: 0.8rem;
+}
+th, td {
+  text-align: left; padding: 0.9rem 0.9rem 0.85rem 0;
+  border-bottom: 1px solid var(--ink); vertical-align: baseline;
+}
+/* Format and Size are short and fixed; letting them wrap would break "364 KB"
+   over two lines to buy width the file name gets anyway. */
+th:last-child, td:last-child, tbody td:first-of-type { white-space: nowrap; }
+th:last-child, td:last-child { padding-right: 0; }
+thead th {
+  font-family: var(--slug); text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.16em; font-size: 0.6rem; color: var(--ash);
+  border-bottom-width: 3px;
+}
+tbody th { font-weight: 400; }
+a.dl { font-weight: 700; }
+tr.pending td { color: var(--ash); font-style: italic; }
+tr.lang td {
+  font-family: var(--slug); text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700;
+  font-size: 0.6rem; color: var(--ash); padding-top: 1.4rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+/* The only place on the page that raises its voice, and it earns it twice: the
+   browser-print caveat costs a ruined deck if it is missed, and the fold
+   caveat costs a booklet whose pages are out of order. Ruled off, not
+   coloured in. Nothing else on the page may use it. */
+.caution {
+  border-left: 3px solid var(--rust);
+  padding: 0.15rem 0 0.15rem 1rem;
+  margin-top: 1.5rem; max-width: 52ch;
+  font-size: 0.94rem; line-height: 1.55;
+}
+
+/* The two booklet files, side by side. They are one document in two
+   arrangements, and that is only legible when both lines sit in the same look;
+   stacked, the reader reads the first and stops. Below 46rem they stack
+   anyway, because two columns of a phone width are two columns of nothing. */
+.formats { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.6rem; }
+.formats dt:nth-of-type(1) { grid-column: 1; grid-row: 1; }
+.formats dt:nth-of-type(2) { grid-column: 2; grid-row: 1; }
+.formats dd:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+.formats dd:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+@media (max-width: 46rem) { .formats { display: block; } }
+
+.press { margin: 0; padding-left: 1.15rem; }
+.press li { margin-bottom: 0.7em; }
+.press li:last-child { margin-bottom: 0; }
+
+/* One line of small print closing the downloads: the licence of the face the
+   sheets embed, and the link to the readme its author asks to travel with it.
+   Small, because it is a credit; on the page, because the licence says so. */
+.credit { margin: 1.8rem 0 0; font-size: 0.87rem; color: var(--ash); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(1.4rem, 4vw, 3rem);
+}
+
+/* --- colophon ------------------------------------------------------------ */
+.colophon { background: var(--ink); color: var(--bone); padding: clamp(2rem, 5vw, 3rem) var(--gut); }
+.colophon .slug { color: #a8a49b; }
+.colophon .slug b { color: var(--bone); }
+.colophon .fine {
+  margin: 1.1rem 0 0; max-width: 62ch;
+  font-size: 0.9rem; line-height: 1.6; color: #cdc9c0;
+}
+.colophon a { color: var(--bone); }
+.colophon a:hover { color: var(--ochre); }
+.colophon-marks { display: flex; gap: 1.2rem; align-items: center; margin-bottom: 1.4rem; }
+.colophon-marks .sigil { width: 2.1rem; }
+/* The sigils are cut in ink; on the black band they have to be knocked out. */
+.colophon .sigil path, .colophon .sigil circle { fill: var(--bone); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar a las hojas</a>
+
+<div class="sheet-body">
+
+  <nav aria-label="Idioma">
+    <ul class="langs"><li><a href="../" hreflang="en" lang="en" aria-label="Read in English" data-goatcounter-click="idioma/en" data-goatcounter-title="Language: en">English</a></li><li><span aria-current="page">Castellano</span></li></ul>
+  </nav>
+
+  <header class="masthead">
+    <p class="ticks" aria-hidden="true"><span class="lozenge"></span></p>
+    <div class="wordmark">
+      <svg class="sigil" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" aria-label="Emblema de Llave"><path d="M24.76 26.67A23.43,23.43 0 1 1 71.62 26.67A23.43,23.43 0 1 1 24.76 26.67ZM40.36 26.67A7.84,7.84 0 1 1 56.03 26.67A7.84,7.84 0 1 1 40.36 26.67Z" fill="#1a1a1a" fill-rule="evenodd"/><path d="M39.58 46.70L45.52 46.63L51.04 46.90L56.24 47.03L56.22 63.86L56.25 80.45L56.58 98.03L50.66 97.47L45.50 98.14L39.82 97.63L40.18 80.41L40.07 63.73Z" fill="#1a1a1a"/><path d="M54.07 70.16L65.52 70.70L76.76 70.52L77.11 75.92L77.04 81.26L65.33 81.37L54.48 81.54L54.20 76.09Z" fill="#1a1a1a"/><path d="M54.30 85.66L62.63 85.97L70.28 85.87L70.49 91.68L70.65 96.79L62.78 96.66L54.28 97.15L54.07 91.38Z" fill="#1a1a1a"/></svg>
+      <h1>Reliquary28</h1>
+      <svg class="sigil" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" aria-label="Emblema de Calavera"><path d="M21.86 50.52C21.86 17.80 34.44 8.99 50.17 8.99C65.90 8.99 78.49 17.80 78.49 50.52C78.49 66.25 70.94 73.80 67.16 77.58L67.16 93.31L33.18 93.31L33.18 77.58C29.41 73.80 21.86 66.25 21.86 50.52ZM27.52 42.34A9.12,9.12 0 1 0 45.77 42.34A9.12,9.12 0 1 0 27.52 42.34ZM54.58 42.34A9.12,9.12 0 1 0 72.82 42.34A9.12,9.12 0 1 0 54.58 42.34ZM50.17 55.55L56.78 68.77L43.57 68.77ZM35.58 78.20L37.59 78.20L37.59 93.31L35.58 93.31ZM42.37 78.20L44.38 78.20L44.38 93.31L42.37 93.31ZM49.17 78.20L51.18 78.20L51.18 93.31L49.17 93.31ZM55.96 78.20L57.98 78.20L57.98 93.31L55.96 93.31ZM62.76 78.20L64.77 78.20L64.77 93.31L62.76 93.31ZM33.18 77.26L67.16 77.26L67.16 79.46L33.18 79.46Z" fill="#1a1a1a" fill-rule="evenodd"/></svg>
+    </div>
+    <p class="subtitle">Dos huestes se disputan entre ruinas la santa reliquia del&nbsp;rival.</p>
+    <p class="slug"><b>Dos jugadores</b> &middot; unos 20 minutos &middot; 36 cartas en cuatro hojas A4 &middot; sin tablero que comprar: cualquier cuadrícula que dibujes &middot; sin más miniaturas que las tuyas</p>
+  </header>
+
+  <hr class="rule2">
+
+  <main id="main">
+
+    <section class="register hero" aria-labelledby="h-hero">
+      <div>
+        <p class="eyebrow">Imprime y juega, gratis</p>
+        <h2 id="h-hero">Cada carta que juegas acaba en manos del rival</h2>
+        <p class="lede">Tres cartas en la mano. Juegas una, la apartas y coges la que estaba en espera. La que acabas de jugar es la que tu rival coge en su turno.</p>
+        <p>Reliquary28 desciende de Onitama y conserva su idea más cruel: la mano circula entre los dos jugadores, así que en ella no hay secretos, solo el cuándo. Alrededor, un juego de escaramuzas. Dos huestes, dos Reliquias a la vista, Ruinas que cortan las líneas de visión y un dado que agota la tregua.</p>
+        <div class="actions">
+          <a class="btn btn--ink" href="#downloads">Descarga las hojas</a>
+          <a class="btn" href="#play">Mira cómo se juega</a>
+        </div>
+      </div>
+      <div>
+        <svg class="diagram diagram--hero" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" aria-label="Diagrama de movimiento del Peregrino: la pieza que mueve en el centro de una cuadrícula de cinco por cinco, con cuatro casillas de destino recortadas a su alrededor."><path d="M23.82 25.11L24.53 24.53L25.11 23.82" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M23.87 26.62L25.29 25.29L26.62 23.87" fill="none" stroke="#1a1a1a" stroke-width="0.55" stroke-linecap="butt"/><path d="M23.73 28.24L25.21 26.71L26.78 25.28L28.24 23.73" fill="none" stroke="#1a1a1a" stroke-width="0.47" stroke-linecap="butt"/><path d="M23.78 29.87L25.37 28.42L26.92 26.92L28.33 25.29L29.87 23.78" fill="none" stroke="#1a1a1a" stroke-width="0.62" stroke-linecap="butt"/><path d="M23.88 31.21L25.42 29.82L26.74 28.21L28.32 26.85L29.75 25.36L31.21 23.88" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M23.83 32.78L25.18 31.58L26.41 30.25L27.63 28.91L28.86 27.58L30.31 26.47L31.50 25.10L32.78 23.83" fill="none" stroke="#1a1a1a" stroke-width="0.62" stroke-linecap="butt"/><path d="M23.88 34.21L25.24 32.98L26.55 31.71L27.66 30.24L29.02 29.02L30.25 27.67L31.68 26.51L32.89 25.14L34.21 23.88" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M23.87 35.84L25.28 34.58L26.48 33.13L27.87 31.86L29.28 30.61L30.52 29.20L31.82 27.83L33.13 26.49L34.56 25.26L35.84 23.87" fill="none" stroke="#1a1a1a" stroke-width="0.46" stroke-linecap="butt"/><path d="M23.83 37.63L25.22 36.26L26.52 34.80L28.00 33.52L29.43 32.19L30.69 30.69L32.08 29.32L33.57 28.05L34.89 26.61L36.20 25.17L37.63 23.83" fill="none" stroke="#1a1a1a" stroke-width="0.42" stroke-linecap="butt"/><path d="M23.79 39.51L25.09 38.19L26.36 36.84L27.75 35.60L29.07 34.31L30.30 32.92L31.56 31.56L33.06 30.44L34.35 29.11L35.48 27.62L36.90 26.42L38.24 25.14L39.51 23.79" fill="none" stroke="#1a1a1a" stroke-width="0.50" stroke-linecap="butt"/><path d="M25.03 40.09L26.42 38.74L27.75 37.33L29.08 35.92L30.46 34.56L31.81 33.18L33.17 31.80L34.56 30.45L36.05 29.21L37.36 27.78L38.78 26.46L40.09 25.03" fill="none" stroke="#1a1a1a" stroke-width="0.60" stroke-linecap="butt"/><path d="M26.72 40.27L28.16 39.00L29.35 37.48L30.84 36.26L32.21 34.92L33.53 33.53L34.83 32.12L36.12 30.70L37.48 29.35L38.94 28.10L40.27 26.72" fill="none" stroke="#1a1a1a" stroke-width="0.47" stroke-linecap="butt"/><path d="M28.47 40.23L29.71 38.85L31.04 37.57L32.44 36.35L33.69 35.00L34.98 33.68L36.31 32.39L37.63 31.10L38.92 29.78L40.23 28.47" fill="none" stroke="#1a1a1a" stroke-width="0.51" stroke-linecap="butt"/><path d="M30.53 40.13L31.85 38.70L33.24 37.35L34.58 35.95L35.99 34.62L37.29 33.18L38.81 31.95L40.13 30.53" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M32.21 40.10L33.49 38.75L34.85 37.49L36.24 36.24L37.48 34.85L38.81 33.54L40.10 32.21" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M34.16 40.13L35.61 38.60L37.11 37.11L38.65 35.67L40.13 34.16" fill="none" stroke="#1a1a1a" stroke-width="0.52" stroke-linecap="butt"/><path d="M35.75 40.24L37.26 38.76L38.78 37.29L40.24 35.75" fill="none" stroke="#1a1a1a" stroke-width="0.57" stroke-linecap="butt"/><path d="M37.46 40.19L38.83 38.83L40.19 37.46" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M39.05 40.28L39.62 39.62L40.28 39.05" fill="none" stroke="#1a1a1a" stroke-width="0.62" stroke-linecap="butt"/><path d="M59.76 25.17L60.56 24.56L61.17 23.76" fill="none" stroke="#1a1a1a" stroke-width="0.58" stroke-linecap="butt"/><path d="M59.78 26.64L61.20 25.20L62.64 23.78" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M59.82 28.22L61.34 26.81L62.68 25.22L64.22 23.82" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M59.83 29.71L61.26 28.20L62.83 26.83L64.32 25.37L65.71 23.83" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M59.84 31.33L61.27 29.77L62.88 28.38L64.39 26.89L65.82 25.33L67.33 23.84" fill="none" stroke="#1a1a1a" stroke-width="0.48" stroke-linecap="butt"/><path d="M59.87 33.14L61.25 31.88L62.48 30.45L63.79 29.12L65.12 27.79L66.43 26.46L67.72 25.10L69.14 23.87" fill="none" stroke="#1a1a1a" stroke-width="0.44" stroke-linecap="butt"/><path d="M59.81 34.89L61.27 33.59L62.55 32.10L63.90 30.67L65.44 29.44L66.65 27.88L68.09 26.55L69.56 25.24L70.89 23.81" fill="none" stroke="#1a1a1a" stroke-width="0.48" stroke-linecap="butt"/><path d="M59.87 36.79L61.12 35.46L62.53 34.28L63.83 33.00L65.04 31.62L66.26 30.26L67.54 28.96L68.98 27.81L70.28 26.53L71.53 25.19L72.79 23.87" fill="none" stroke="#1a1a1a" stroke-width="0.57" stroke-linecap="butt"/><path d="M59.77 38.75L61.07 37.33L62.57 36.10L63.92 34.73L65.20 33.29L66.53 31.90L67.86 30.49L69.28 29.20L70.75 27.94L71.97 26.43L73.35 25.09L74.75 23.77" fill="none" stroke="#1a1a1a" stroke-width="0.43" stroke-linecap="butt"/><path d="M59.98 40.27L61.37 38.95L62.69 37.55L64.04 36.18L65.36 34.79L66.73 33.44L68.20 32.20L69.57 30.86L70.89 29.46L72.14 28.00L73.50 26.64L74.88 25.31L76.27 23.98" fill="none" stroke="#1a1a1a" stroke-width="0.60" stroke-linecap="butt"/><path d="M61.96 40.23L63.29 38.96L64.53 37.62L65.85 36.33L67.09 34.98L68.49 33.79L69.80 32.51L71.13 31.24L72.34 29.85L73.63 28.55L74.97 27.29L76.23 25.96" fill="none" stroke="#1a1a1a" stroke-width="0.45" stroke-linecap="butt"/><path d="M63.98 40.13L65.27 38.72L66.66 37.41L68.03 36.07L69.45 34.80L70.77 33.42L72.03 31.98L73.52 30.77L74.86 29.42L76.13 27.98" fill="none" stroke="#1a1a1a" stroke-width="0.59" stroke-linecap="butt"/><path d="M65.61 40.19L66.91 38.84L68.35 37.64L69.57 36.21L70.99 34.99L72.16 33.51L73.45 32.16L74.86 30.92L76.19 29.61" fill="none" stroke="#1a1a1a" stroke-width="0.46" stroke-linecap="butt"/><path d="M67.07 40.27L68.31 38.88L69.69 37.63L70.93 36.25L72.29 34.97L73.67 33.72L74.91 32.33L76.27 31.07" fill="none" stroke="#1a1a1a" stroke-width="0.48" stroke-linecap="butt"/><path d="M68.73 40.23L70.24 38.74L71.79 37.28L73.14 35.64L74.74 34.24L76.23 32.73" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M70.75 40.14L72.05 38.75L73.47 37.47L74.87 36.18L76.14 34.75" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M72.48 40.26L74.34 38.34L76.26 36.48" fill="none" stroke="#1a1a1a" stroke-width="0.52" stroke-linecap="butt"/><path d="M74.20 40.13L75.16 39.16L76.13 38.20" fill="none" stroke="#1a1a1a" stroke-width="0.62" stroke-linecap="butt"/><path d="M23.74 43.19L24.53 42.53L25.19 41.74" fill="none" stroke="#1a1a1a" stroke-width="0.50" stroke-linecap="butt"/><path d="M23.82 44.54L25.16 43.16L26.54 41.82" fill="none" stroke="#1a1a1a" stroke-width="0.57" stroke-linecap="butt"/><path d="M23.77 46.15L25.23 44.69L26.67 43.21L28.15 41.77" fill="none" stroke="#1a1a1a" stroke-width="0.45" stroke-linecap="butt"/><path d="M23.89 47.85L25.45 46.43L26.90 44.90L28.35 43.38L29.85 41.89" fill="none" stroke="#1a1a1a" stroke-width="0.58" stroke-linecap="butt"/><path d="M23.74 49.52L24.98 48.17L26.34 46.94L27.57 45.57L28.92 44.32L30.29 43.10L31.52 41.74" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M23.74 51.04L24.97 49.61L26.31 48.29L27.68 47.01L29.10 45.77L30.45 44.46L31.69 43.05L33.04 41.74" fill="none" stroke="#1a1a1a" stroke-width="0.43" stroke-linecap="butt"/><path d="M23.91 52.59L25.15 51.16L26.61 49.95L28.02 48.69L29.22 47.22L30.61 45.93L31.99 44.64L33.29 43.28L34.59 41.91" fill="none" stroke="#1a1a1a" stroke-width="0.45" stroke-linecap="butt"/><path d="M23.84 54.52L25.28 53.15L26.68 51.72L28.13 50.36L29.49 48.90L30.97 47.56L32.22 45.99L33.61 44.56L35.04 43.17L36.52 41.84" fill="none" stroke="#1a1a1a" stroke-width="0.52" stroke-linecap="butt"/><path d="M23.90 56.27L25.11 54.87L26.42 53.56L27.80 52.33L29.16 51.08L30.42 49.72L31.70 48.39L32.99 47.07L34.40 45.87L35.68 44.54L37.06 43.30L38.27 41.90" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M23.91 57.94L25.29 56.65L26.54 55.22L27.97 53.98L29.24 52.59L30.51 51.18L31.85 49.85L33.26 48.59L34.56 47.22L35.89 45.87L37.31 44.63L38.56 43.20L39.94 41.91" fill="none" stroke="#1a1a1a" stroke-width="0.51" stroke-linecap="butt"/><path d="M25.27 58.28L26.70 56.97L27.95 55.50L29.30 54.12L30.73 52.82L32.03 51.40L33.36 50.00L34.74 48.65L36.09 47.27L37.52 45.97L38.88 44.60L40.28 43.27" fill="none" stroke="#1a1a1a" stroke-width="0.46" stroke-linecap="butt"/><path d="M26.94 58.11L28.27 56.81L29.59 55.50L30.79 54.06L32.29 52.93L33.43 51.43L34.89 50.26L36.19 48.92L37.46 47.56L38.76 46.22L40.11 44.94" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M28.68 58.11L30.02 56.59L31.45 55.17L32.99 53.85L34.35 52.35L35.84 50.98L37.23 49.51L38.59 48.01L40.11 46.68" fill="none" stroke="#1a1a1a" stroke-width="0.58" stroke-linecap="butt"/><path d="M30.08 58.21L31.58 56.81L33.06 55.40L34.50 53.94L35.96 52.51L37.28 50.94L38.71 49.48L40.21 48.08" fill="none" stroke="#1a1a1a" stroke-width="0.51" stroke-linecap="butt"/><path d="M32.03 58.15L33.40 56.82L34.77 55.48L36.03 54.03L37.46 52.75L38.78 51.36L40.15 50.03" fill="none" stroke="#1a1a1a" stroke-width="0.60" stroke-linecap="butt"/><path d="M33.58 58.17L34.93 56.88L36.26 55.58L37.59 54.28L38.90 52.95L40.17 51.58" fill="none" stroke="#1a1a1a" stroke-width="0.45" stroke-linecap="butt"/><path d="M35.44 58.27L37.10 56.71L38.62 55.01L40.27 53.44" fill="none" stroke="#1a1a1a" stroke-width="0.44" stroke-linecap="butt"/><path d="M37.07 58.26L38.60 56.60L40.26 55.07" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M38.99 58.21L39.60 57.60L40.21 56.99" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M59.90 43.03L60.49 42.49L61.03 41.90" fill="none" stroke="#1a1a1a" stroke-width="0.60" stroke-linecap="butt"/><path d="M59.82 44.67L61.26 43.26L62.67 41.82" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M59.77 46.15L61.26 44.72L62.67 43.20L64.15 41.77" fill="none" stroke="#1a1a1a" stroke-width="0.56" stroke-linecap="butt"/><path d="M59.83 47.92L61.28 46.32L62.86 44.86L64.48 43.44L65.92 41.83" fill="none" stroke="#1a1a1a" stroke-width="0.48" stroke-linecap="butt"/><path d="M59.87 49.33L61.34 47.81L62.79 46.29L64.35 44.86L65.92 43.45L67.33 41.87" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M59.72 51.00L61.03 49.66L62.33 48.30L63.79 47.12L65.10 45.78L66.45 44.47L67.76 43.13L69.00 41.72" fill="none" stroke="#1a1a1a" stroke-width="0.48" stroke-linecap="butt"/><path d="M59.83 52.66L61.19 51.31L62.55 49.96L63.84 48.54L65.18 47.18L66.51 45.80L67.99 44.58L69.24 43.12L70.66 41.83" fill="none" stroke="#1a1a1a" stroke-width="0.59" stroke-linecap="butt"/><path d="M59.78 54.49L61.27 53.15L62.52 51.58L63.96 50.19L65.49 48.90L66.81 47.40L68.33 46.10L69.66 44.60L70.97 43.09L72.49 41.78" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M59.81 56.43L61.18 55.14L62.51 53.81L63.72 52.36L65.18 51.17L66.45 49.78L67.82 48.49L69.02 47.03L70.43 45.78L71.71 44.41L73.19 43.22L74.43 41.81" fill="none" stroke="#1a1a1a" stroke-width="0.43" stroke-linecap="butt"/><path d="M59.79 57.87L61.19 56.59L62.40 55.13L63.84 53.89L65.20 52.57L66.51 51.19L67.81 49.81L69.22 48.54L70.43 47.07L71.80 45.76L73.26 44.54L74.47 43.07L75.87 41.79" fill="none" stroke="#1a1a1a" stroke-width="0.47" stroke-linecap="butt"/><path d="M60.96 58.17L62.43 56.88L63.66 55.34L65.11 54.03L66.57 52.72L67.79 51.18L69.26 49.87L70.60 48.45L72.03 47.12L73.50 45.82L74.88 44.43L76.17 42.96" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M62.47 58.18L63.93 56.90L65.16 55.39L66.54 54.02L67.93 52.67L69.41 51.41L70.66 49.92L72.01 48.52L73.42 47.20L74.82 45.85L76.18 44.47" fill="none" stroke="#1a1a1a" stroke-width="0.46" stroke-linecap="butt"/><path d="M64.26 58.24L65.60 56.92L66.89 55.55L68.33 54.32L69.68 53.01L70.91 51.58L72.23 50.23L73.56 48.90L74.94 47.62L76.24 46.26" fill="none" stroke="#1a1a1a" stroke-width="0.45" stroke-linecap="butt"/><path d="M65.70 58.23L67.03 56.92L68.30 55.56L69.58 54.21L70.97 52.97L72.37 51.74L73.68 50.42L74.86 48.96L76.23 47.70" fill="none" stroke="#1a1a1a" stroke-width="0.46" stroke-linecap="butt"/><path d="M67.61 58.11L68.95 56.62L70.45 55.28L71.82 53.82L73.37 52.54L74.78 51.12L76.11 49.61" fill="none" stroke="#1a1a1a" stroke-width="0.47" stroke-linecap="butt"/><path d="M69.42 58.25L70.74 56.84L72.24 55.61L73.49 54.12L74.98 52.88L76.25 51.42" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M71.34 58.10L72.98 56.56L74.48 54.89L76.10 53.34" fill="none" stroke="#1a1a1a" stroke-width="0.50" stroke-linecap="butt"/><path d="M72.81 58.23L74.49 56.49L76.23 54.81" fill="none" stroke="#1a1a1a" stroke-width="0.56" stroke-linecap="butt"/><path d="M74.43 58.27L75.41 57.41L76.27 56.43" fill="none" stroke="#1a1a1a" stroke-width="0.55" stroke-linecap="butt"/><path d="M23.12 23.19L26.64 23.16L30.28 23.06L33.76 23.25L37.33 23.27L40.89 23.11" fill="none" stroke="#1a1a1a" stroke-width="0.60" stroke-linecap="butt"/><path d="M40.84 23.10L40.90 26.63L40.87 30.31L40.90 33.75L40.74 37.31L40.85 40.80" fill="none" stroke="#1a1a1a" stroke-width="0.71" stroke-linecap="butt"/><path d="M23.17 40.82L26.77 40.94L30.21 40.73L33.82 40.80L37.36 40.91L40.87 40.78" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M23.14 23.14L23.17 26.64L23.16 30.18L23.08 33.71L23.20 37.26L23.14 40.80" fill="none" stroke="#1a1a1a" stroke-width="0.55" stroke-linecap="butt"/><path d="M59.16 23.11L62.62 23.13L66.26 23.26L69.67 23.14L73.22 23.21L76.80 23.11" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M76.89 23.10L76.79 26.81L76.75 30.14L76.83 33.73L76.87 37.26L76.78 40.82" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M59.15 40.77L62.78 40.85L66.19 40.83L69.83 40.92L73.21 40.87L76.90 40.81" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M59.18 23.17L59.22 26.60L59.12 30.13L59.08 33.86L59.18 37.24L59.15 40.81" fill="none" stroke="#1a1a1a" stroke-width="0.68" stroke-linecap="butt"/><path d="M23.21 41.15L26.80 41.18L30.30 41.14L33.83 41.23L37.39 41.09L40.78 41.16" fill="none" stroke="#1a1a1a" stroke-width="0.50" stroke-linecap="butt"/><path d="M40.85 41.16L40.85 44.66L40.76 48.19L40.90 51.72L40.94 55.38L40.83 58.81" fill="none" stroke="#1a1a1a" stroke-width="0.63" stroke-linecap="butt"/><path d="M23.20 58.78L26.68 58.88L30.12 58.87L33.67 58.79L37.33 58.87L40.81 58.82" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M23.12 41.13L23.10 44.70L23.22 48.30L23.14 51.87L23.13 55.38L23.19 58.88" fill="none" stroke="#1a1a1a" stroke-width="0.57" stroke-linecap="butt"/><path d="M59.20 41.14L62.74 41.18L66.25 41.13L69.72 41.06L73.29 41.16L76.90 41.12" fill="none" stroke="#1a1a1a" stroke-width="0.63" stroke-linecap="butt"/><path d="M76.79 41.14L76.75 44.72L76.90 48.22L76.90 51.71L76.80 55.24L76.77 58.78" fill="none" stroke="#1a1a1a" stroke-width="0.73" stroke-linecap="butt"/><path d="M59.11 58.79L62.73 58.80L66.24 58.74L69.67 58.84L73.40 58.77L76.88 58.79" fill="none" stroke="#1a1a1a" stroke-width="0.73" stroke-linecap="butt"/><path d="M59.19 41.16L59.12 44.64L59.12 48.18L59.18 51.82L59.23 55.34L59.19 58.80" fill="none" stroke="#1a1a1a" stroke-width="0.69" stroke-linecap="butt"/><path d="M4.99 4.94L8.14 4.97L11.05 5.08L14.04 4.91L17.04 5.05L19.94 4.89L22.88 5.05L26.12 4.87L28.97 5.08L32.10 5.08L34.90 4.96L37.88 4.97L41.07 4.93L44.13 4.93L47.00 5.01L50.01 5.06L53.00 5.09L56.02 5.13L59.10 5.11L62.12 5.04L64.98 4.91L67.93 5.00L71.07 4.99L73.87 4.94L77.01 4.91L80.11 4.95L82.89 5.12L85.99 4.92L88.89 5.01L92.12 4.95L95.06 4.98" fill="none" stroke="#1a1a1a" stroke-width="1.39" stroke-linecap="butt"/><path d="M5.05 5.02L4.86 8.10L5.14 10.97L5.09 13.89L4.93 17.12L4.92 19.97L4.95 22.90L5.11 25.88L5.13 28.95L5.05 31.96L4.94 35.03L5.12 38.04L4.92 41.03L5.05 44.14L4.97 47.11L4.99 50.14L5.01 52.94L5.06 56.12L4.90 58.97L4.99 62.12L5.12 64.93L5.04 68.04L5.02 70.87L4.98 74.11L4.94 77.12L5.07 79.97L4.92 82.92L5.10 86.03L5.09 88.98L5.04 91.95L4.99 94.94" fill="none" stroke="#1a1a1a" stroke-width="1.39" stroke-linecap="butt"/><path d="M4.97 23.00L7.91 22.95L11.11 23.11L14.10 22.92L16.99 23.05L19.91 22.97L23.08 23.13L25.90 23.00L29.00 22.98L32.11 22.86L35.09 23.09L37.97 23.07L41.08 22.98L43.90 22.92L47.12 22.96L50.08 22.88L53.08 22.94L56.05 22.94L59.07 23.06L62.14 22.92L64.98 23.11L68.04 22.89L70.89 23.03L73.90 22.88L76.99 22.94L79.99 23.00L83.04 22.90L86.12 22.88L89.08 22.98L91.99 23.02L94.99 22.98" fill="none" stroke="#1a1a1a" stroke-width="0.64" stroke-linecap="butt"/><path d="M23.02 5.08L23.01 7.93L23.12 11.05L22.95 14.13L22.93 17.13L23.13 20.09L22.94 23.13L23.00 25.86L22.99 29.01L22.98 31.86L22.90 34.92L22.95 37.93L23.03 41.08L23.03 44.00L22.92 46.98L22.95 49.97L22.94 53.13L23.01 55.98L23.12 59.03L23.10 62.09L23.13 64.94L23.05 68.11L22.97 71.11L22.88 73.88L22.92 76.95L22.93 79.93L23.01 83.03L22.95 86.11L23.14 89.13L23.06 92.13L23.07 95.04" fill="none" stroke="#1a1a1a" stroke-width="0.64" stroke-linecap="butt"/><path d="M4.92 41.08L8.06 41.05L10.89 41.09L13.96 41.11L17.14 40.98L20.14 40.90L22.92 41.10L26.07 40.94L28.98 40.98L32.06 40.87L35.02 41.05L38.06 40.88L40.93 40.93L43.98 41.05L47.01 40.96L49.98 41.09L53.13 41.07L55.94 40.88L59.03 40.86L61.92 40.89L64.93 40.87L67.88 41.13L71.11 40.86L74.10 41.09L77.13 41.08L79.94 41.06L82.88 41.02L86.09 40.88L88.91 41.12L91.99 40.91L94.97 40.98" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M41.05 4.92L40.98 8.03L41.05 11.13L41.09 14.01L40.96 17.03L40.92 19.91L41.06 23.13L41.11 25.89L41.06 29.06L41.07 31.97L40.99 35.08L40.90 37.96L40.89 41.03L40.94 44.07L40.87 47.11L41.00 49.98L40.88 52.94L41.05 55.97L40.91 58.89L41.02 61.86L41.02 64.99L41.02 67.89L41.09 70.90L41.06 74.06L41.10 77.03L41.04 80.03L40.96 82.93L40.93 86.10L41.01 88.99L41.13 92.08L41.03 95.03" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M4.95 59.01L8.08 59.02L10.93 58.97L14.13 59.10L17.00 58.94L19.92 59.01L22.89 59.02L26.00 58.99L29.08 58.97L32.09 58.93L35.08 58.99L37.98 58.97L40.91 58.96L43.87 58.97L47.02 58.91L49.96 58.93L52.90 59.14L56.13 59.07L58.95 59.13L61.92 58.97L64.87 59.14L67.90 59.11L71.09 59.07L74.11 59.13L77.00 59.05L80.00 58.96L82.96 59.10L86.10 58.94L88.98 59.00L91.97 58.91L94.92 59.01" fill="none" stroke="#1a1a1a" stroke-width="0.64" stroke-linecap="butt"/><path d="M58.96 5.08L59.05 8.00L59.06 11.10L58.88 13.90L59.12 17.11L58.94 20.04L58.91 22.98L59.00 26.06L58.97 29.01L58.96 31.94L58.88 34.96L59.07 38.12L58.96 41.09L58.90 44.04L59.09 47.09L59.13 50.11L59.09 52.91L59.05 56.08L59.07 59.05L59.11 61.91L59.13 65.12L58.96 67.96L59.04 71.01L58.87 74.09L58.96 77.03L59.07 80.13L58.97 83.03L59.12 86.06L58.94 88.93L59.03 92.04L59.04 94.98" fill="none" stroke="#1a1a1a" stroke-width="0.64" stroke-linecap="butt"/><path d="M5.07 77.01L7.98 76.94L11.07 77.01L13.92 76.93L16.94 76.90L19.90 76.95L23.13 77.00L25.87 77.03L29.06 77.01L31.98 76.87L35.07 76.94L38.05 77.06L41.04 77.02L44.06 76.88L46.99 77.13L49.91 77.07L52.87 76.89L55.86 77.11L59.04 77.10L61.98 77.00L65.14 77.03L67.98 76.96L70.88 77.01L73.88 77.00L77.00 77.01L80.06 76.91L82.89 76.95L86.10 76.98L89.06 76.93L92.10 77.01L95.01 77.03" fill="none" stroke="#1a1a1a" stroke-width="0.62" stroke-linecap="butt"/><path d="M76.96 4.94L76.91 8.04L76.88 10.98L77.11 14.08L76.89 16.99L77.10 20.13L77.14 22.94L77.02 26.11L76.89 28.96L77.04 32.04L77.00 35.01L76.86 37.88L76.92 40.87L76.98 44.12L77.12 46.92L76.94 50.02L77.07 52.98L76.91 56.02L77.08 58.93L77.09 61.98L77.14 64.91L76.97 67.92L76.88 71.04L76.98 74.12L77.09 76.86L76.99 80.07L76.90 83.05L76.93 86.06L77.02 88.86L77.06 91.90L77.03 95.07" fill="none" stroke="#1a1a1a" stroke-width="0.62" stroke-linecap="butt"/><path d="M4.96 94.92L8.03 94.93L11.07 94.87L13.95 94.90L17.06 95.08L19.93 94.99L23.06 95.09L25.91 94.91L29.00 94.87L32.08 94.91L35.05 94.99L38.06 94.95L41.00 94.87L44.11 95.06L46.88 94.99L49.98 95.01L52.97 94.94L55.94 95.09L59.05 95.08L62.00 95.13L65.01 95.10L68.02 95.02L71.04 95.09L73.99 94.87L77.10 94.88L79.95 94.97L83.03 94.90L86.03 95.06L89.11 94.96L91.99 95.09L94.98 94.99" fill="none" stroke="#1a1a1a" stroke-width="1.31" stroke-linecap="butt"/><path d="M95.05 4.93L94.89 7.99L94.89 11.05L94.93 14.05L94.89 17.12L94.94 20.05L95.12 22.97L95.12 26.11L95.01 29.04L95.08 32.12L94.98 34.91L94.95 38.01L95.09 40.87L94.93 44.13L95.07 46.95L94.96 49.90L95.05 53.12L95.12 55.93L94.92 58.92L95.09 61.94L94.96 64.89L95.10 68.10L95.05 70.94L95.06 74.06L95.09 76.92L95.04 80.03L94.96 82.98L94.94 85.93L95.12 88.87L95.13 91.91L94.94 95.05" fill="none" stroke="#1a1a1a" stroke-width="1.31" stroke-linecap="butt"/><path d="M50.00 43.33L53.16 44.64L53.91 48.63L52.25 50.06L51.31 53.63L54.58 54.68L54.55 56.69L45.58 54.84L48.63 53.65L47.89 50.15L46.19 48.68L46.77 44.64L50.10 43.38Z" fill="#1a1a1a"/></svg>
+        <p class="slug diagram-note">Peregrino &middot; cuatro destinos &middot; la parte de arriba mira hacia tu rival</p>
+      </div>
+    </section>
+
+    <section class="register" id="need" aria-labelledby="h-need">
+      <h2 id="h-need">Lo que hace falta</h2>
+      <p class="lede">Deliberadamente poco. Si tienes miniaturas, ya tienes casi todo el juego.</p>
+      <ul class="kit">
+        <li><b>Una cuadrícula, de 8 × 8 a 12 × 12.</b>
+          <span>Tiza sobre un tapete, un tablero de ajedrez, papel cuadriculado, cinta adhesiva sobre la mesa. Acordad el tamaño antes de preparar la partida: la hueste crece con él.</span></li>
+        <li><b>Un Héroe, de 3 a 5 Esbirros y un Esbirro de reserva por bando.</b>
+          <span>Las miniaturas que quieras, con tal de que los dos bandos se distingan. El de reserva es para el Rito que añade uno. Un tablero grande pide más cuerpos, o los ejércitos nunca llegan a encontrarse.</span></li>
+        <li><b>Dos fichas de Reliquia, dos dados de seis caras y fichas de daño.</b>
+          <span>Un dado es el del Azar; el otro, el contador de la Vigilia. Para lo demás sirven monedas y abalorios.</span></li>
+        <li><b>Las cuatro hojas impresas y algo con que cortar.</b>
+          <span>Cuatro caras A4 en tinta negra: 18 cartas de movimiento, 9 facciones y 9 Ritos. Con tijeras basta; con guillotina sale mejor.</span></li>
+      </ul>
+      <p class="slug">Aquí los jugadores no son colores: juegas con un emblema, la <b>Llave</b> o la <b>Calavera</b>.</p>
+    </section>
+
+    <section class="register" id="play" aria-labelledby="h-play">
+      <h2 id="h-play">Así se juega un turno</h2>
+      <p class="lede">Una carta, un solo modo. Después la carta sale de tu mano y cruza la mesa.</p>
+      <ol class="cycle">
+        <li><p><b>Juega una de tus tres cartas</b>, en un solo modo. Nada de mover y atacar a la vez: o lo uno o lo otro, o reagrupar, o el Rito que elegiste.</p></li>
+        <li><p><b>Apártala.</b> Se queda como carta en espera, boca arriba, a la vista de los dos.</p></li>
+        <li><p><b>Coge la carta que estaba en espera.</b> Vuelves a tener tres, y la que acabas de jugar ya va camino de tu rival.</p></li>
+      </ol>
+      <div class="two-col">
+        <div>
+          <h3>Los cuatro modos</h3>
+          <dl class="modes">
+            <dt>Mover</dt>
+            <dd>Una pieza, exactamente lo que marca el diagrama. Las piezas saltan: solo hace falta que la casilla de destino esté libre. Una carta sin casilla hacia atrás lleva la cruz de Escolta <svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" aria-label="Cruz de Escolta"><path d="M36.80 6.00L63.20 6.00L63.20 36.80L94.00 36.80L94.00 63.20L63.20 63.20L63.20 94.00L36.80 94.00L36.80 63.20L6.00 63.20L6.00 36.80L36.80 36.80Z" fill="#1a1a1a"/></svg> y permite que una segunda pieza dé un paso tras ella.</dd>
+            <dt>Atacar</dt>
+            <dd>Un solo atacante y ningún movimiento. Ocho cartas se limitan a darte el Ataque de Facción. Las otras diez traen ataque propio: una saeta con alcance, un garfio que atrae a un enemigo por una línea despejada, una galerna que empuja dos casillas a todas las piezas adyacentes.</dd>
+            <dt>Reagrupar</dt>
+            <dd>Renuncia a mover y a atacar y devuelve un Esbirro abatido a tu fila trasera. Silencioso, lento y, de vez en cuando, lo único que queda por hacer.</dd>
+            <dt>Rito</dt>
+            <dd>Elegid uno al preparar la partida; cada uno lo gasta una vez. Renuncia a la carta y haz lo que diga tu Rito: un Esbirro nuevo en tu fila trasera, una Ruina arrancada con un Esbirro en su lugar o un Esbirro enemigo abatido que pasa a luchar bajo tu emblema. Después se descarta, y la Vigilia vuelve a seis.</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Cómo acaba la partida</h3>
+          <p>Abate al Héroe enemigo, o acaba cualquier turno en tu propia fila trasera con su Reliquia. Los Héroes aguantan cuatro golpes; los Esbirros, uno.</p>
+          <p>Llevarla es lo difícil. Si el rival empuja, atrae o intercambia al portador, la Reliquia se queda en la casilla que este deja, sea cual sea la distancia. Y las Ruinas no tapan al portador: tu rival puede dispararle a través de ellas, así que no hay cobertura a la que llevarla.</p>
+          <h3>La Vigilia</h3>
+          <p>Un dado con el seis hacia arriba. Cada ronda completa en la que nadie pierde ni un punto de vida y ninguna Reliquia cambia de manos, baja un punto. Un golpe, una Reliquia o un Rito lo reinician. Con el dado en 1, una ronda sin reinicio acaba la partida, y se decide por la posición de las Reliquias: un punto más por el portador en la mitad enemiga, un punto menos por el que se agazapa en casa.</p>
+          <p class="slug">Atrincherarse no gana partidas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="register" id="sheets" aria-labelledby="h-sheets">
+      <h2 id="h-sheets">Las hojas</h2>
+      <p class="lede">Tinta negra, sin cartucho de color y sin nada que comprar salvo unas tijeras. Las cartas van borde con borde y comparten las líneas de corte.</p>
+
+      <div class="plate">
+        <figure>
+          <svg class="cardart" viewBox="0 0 88.9 63.5" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-label="La carta Saeta, a tamaño impreso: un marco de xilografía tallado a mano, el nombre en letra gótica con un sello al lado, un diagrama de movimiento de cinco por cinco con la pieza que mueve en la casilla central y sus destinos rayados, y el texto de ataque. Héroe: 2 de daño, a 2 o menos, LdV. Esbirro: 1 de daño, adyacente."><rect x="0" y="0" width="88.9" height="63.5" fill="#ffffff"/><path d="M1.54 1.73L4.17 1.59L6.97 1.59L10.03 1.47L12.85 1.63L15.44 1.88L18.24 1.44L20.95 1.76L23.66 1.40L26.50 1.65L29.14 1.73L31.83 1.62L34.99 1.88L37.69 1.88L40.43 1.46L43.03 1.72L45.58 1.81L48.82 1.37L51.38 1.67L54.16 1.39L57.08 1.48L59.42 1.71L62.45 1.48L65.19 1.47L67.75 1.86L70.49 1.61L73.71 1.38L76.06 1.68L79.11 1.80L81.95 1.37L84.28 1.68L87.39 1.50" fill="none" stroke="#1a1a1a" stroke-width="1.81" stroke-linecap="butt"/><path d="M87.40 1.72L87.05 4.59L87.27 7.07L87.49 9.60L87.40 12.37L87.02 15.41L87.07 18.29L87.30 20.86L87.03 23.51L87.03 26.14L87.13 29.08L87.43 31.98L87.19 34.51L87.16 37.22L87.03 39.94L87.35 42.77L87.25 45.27L87.14 48.17L87.49 50.73L87.33 53.53L87.45 56.26L87.51 59.00L87.29 61.94" fill="none" stroke="#1a1a1a" stroke-width="1.92" stroke-linecap="butt"/><path d="M87.31 62.00L84.55 61.95L81.69 61.69L79.19 62.00L76.22 61.63L73.65 61.82L70.81 61.66L67.96 62.05L64.97 61.64L62.61 62.03L59.58 61.66L56.86 61.83L53.91 61.78L51.36 61.77L48.81 61.83L45.93 61.71L43.08 61.76L40.09 61.74L37.35 62.01L34.57 61.85L32.06 61.88L29.21 61.98L26.54 61.70L23.92 61.66L21.09 61.90L18.42 61.88L15.34 61.73L12.82 61.90L9.78 62.14L7.05 61.94L4.28 61.97L1.47 61.88" fill="none" stroke="#1a1a1a" stroke-width="1.72" stroke-linecap="butt"/><path d="M1.59 61.97L1.52 59.15L1.70 56.18L1.43 53.52L1.50 50.80L1.44 48.41L1.87 45.69L1.37 42.52L1.79 40.09L1.77 37.47L1.48 34.53L1.44 31.64L1.46 28.88L1.70 26.51L1.41 23.77L1.46 20.60L1.88 17.82L1.48 15.37L1.68 12.62L1.45 9.74L1.49 7.15L1.85 4.25L1.54 1.67" fill="none" stroke="#1a1a1a" stroke-width="1.65" stroke-linecap="butt"/><path d="M0.49 0.37L1.21 0.39L2.03 0.31L2.93 0.33L2.93 1.33L2.96 2.04L3.00 2.90L2.02 2.89L1.30 2.75L0.47 3.00L0.45 1.98L0.45 1.29Z" fill="#1a1a1a"/><path d="M86.14 0.23L86.97 0.32L87.60 0.35L88.48 0.24L88.44 1.27L88.56 1.93L88.54 2.91L87.76 2.83L86.86 2.76L86.01 2.90L85.99 1.96L86.12 1.32Z" fill="#1a1a1a"/><path d="M86.09 60.50L86.84 60.50L87.82 60.56L88.63 60.50L88.49 61.34L88.50 62.41L88.42 63.03L87.71 63.14L86.94 63.15L86.00 63.26L86.07 62.30L86.15 61.59Z" fill="#1a1a1a"/><path d="M0.44 60.71L1.20 60.58L2.05 60.74L2.75 60.62L2.85 61.58L2.81 62.42L2.82 63.15L2.05 63.04L1.29 63.16L0.44 63.26L0.37 62.25L0.43 61.39Z" fill="#1a1a1a"/><path d="M3.89 3.93L6.90 3.87L9.87 4.09L13.04 3.95L16.04 3.88L19.00 4.10L21.93 4.00L24.93 3.99L28.02 3.95L30.87 4.04L33.99 3.83L37.03 4.09L39.86 3.87L42.97 3.88L45.90 4.05L48.86 4.02L51.86 3.90L54.88 3.92L57.83 3.87L61.08 3.86L63.84 3.99L66.81 3.88L69.89 4.01L72.98 4.08L76.06 3.86L79.07 3.98L82.05 4.04L84.90 4.01" fill="none" stroke="#1a1a1a" stroke-width="0.42" stroke-linecap="butt"/><path d="M85.03 3.90L84.87 7.07L84.84 10.11L84.81 13.35L84.93 16.37L84.85 19.38L85.00 22.62L84.85 25.47L84.98 28.55L84.95 31.87L84.90 34.81L84.97 37.87L84.91 41.15L84.88 44.00L84.97 47.17L84.84 50.35L84.94 53.48L84.81 56.54L84.92 59.57" fill="none" stroke="#1a1a1a" stroke-width="0.30" stroke-linecap="butt"/><path d="M84.94 59.59L81.96 59.54L78.88 59.63L76.06 59.44L73.00 59.67L69.92 59.48L66.98 59.55L63.90 59.51L60.93 59.68L58.07 59.41L54.99 59.53L51.99 59.64L49.05 59.42L46.10 59.53L42.93 59.66L39.91 59.66L37.08 59.45L34.03 59.60L31.02 59.52L28.00 59.58L24.86 59.41L21.92 59.69L18.95 59.43L15.86 59.69L12.90 59.44L10.00 59.64L6.97 59.41L3.99 59.50" fill="none" stroke="#1a1a1a" stroke-width="0.43" stroke-linecap="butt"/><path d="M3.97 59.55L4.00 56.33L3.84 53.46L4.03 50.17L4.03 47.15L3.93 44.00L4.08 41.09L4.01 37.97L3.91 34.98L3.99 31.89L3.84 28.59L3.87 25.53L3.81 22.40L3.91 19.54L3.85 16.28L3.88 13.24L3.91 10.04L3.91 6.90L4.03 3.88" fill="none" stroke="#1a1a1a" stroke-width="0.35" stroke-linecap="butt"/><path d="M33.17 8.40C33.17 5.51 34.28 4.74 35.67 4.74C37.05 4.74 38.16 5.51 38.16 8.40C38.16 9.78 37.49 10.45 37.16 10.78L37.16 12.17L34.17 12.17L34.17 10.78C33.84 10.45 33.17 9.78 33.17 8.40ZM33.67 7.68A0.80,0.80 0 1 0 35.28 7.68A0.80,0.80 0 1 0 33.67 7.68ZM36.05 7.68A0.80,0.80 0 1 0 37.66 7.68A0.80,0.80 0 1 0 36.05 7.68ZM35.67 8.84L36.25 10.00L35.08 10.00ZM34.38 10.83L34.56 10.83L34.56 12.17L34.38 12.17ZM34.98 10.83L35.16 10.83L35.16 12.17L34.98 12.17ZM35.58 10.83L35.75 10.83L35.75 12.17L35.58 12.17ZM36.18 10.83L36.35 10.83L36.35 12.17L36.18 12.17ZM36.77 10.83L36.95 10.83L36.95 12.17L36.77 12.17ZM34.17 10.75L37.16 10.75L37.16 10.95L34.17 10.95Z" fill="#1a1a1a" fill-rule="evenodd"/><path d="M4.82 13.17L8.45 13.10L11.70 13.29L15.17 13.03L18.53 13.06L22.17 13.10L25.53 13.17L29.03 13.24L32.49 13.11L36.04 13.21L39.36 13.21" fill="none" stroke="#1a1a1a" stroke-width="1.10" stroke-linecap="butt"/><path d="M4.92 14.57L8.31 14.54L11.75 14.47L15.32 14.62L18.78 14.47L22.22 14.63L25.62 14.40L28.90 14.55L32.48 14.42L35.96 14.42L39.30 14.54" fill="none" stroke="#1a1a1a" stroke-width="0.34" stroke-linecap="butt"/><path d="M19.48 28.60L20.02 27.87L20.75 27.33" fill="none" stroke="#1a1a1a" stroke-width="0.51" stroke-linecap="butt"/><path d="M19.46 30.43L20.93 28.78L22.58 27.31" fill="none" stroke="#1a1a1a" stroke-width="0.55" stroke-linecap="butt"/><path d="M19.40 32.04L21.01 30.45L22.69 28.94L24.19 27.25" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M20.41 32.61L21.95 31.25L23.28 29.68L24.76 28.26" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M21.89 32.67L23.42 31.27L24.82 29.74" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M23.75 32.66L24.32 32.17L24.81 31.60" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M12.59 42.39L13.23 41.78L13.84 41.14" fill="none" stroke="#1a1a1a" stroke-width="0.57" stroke-linecap="butt"/><path d="M12.66 43.84L14.07 42.62L15.29 41.21" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M12.49 45.78L14.01 44.14L15.58 42.56L17.23 41.04" fill="none" stroke="#1a1a1a" stroke-width="0.59" stroke-linecap="butt"/><path d="M13.32 46.38L14.82 44.88L16.41 43.45L17.83 41.87" fill="none" stroke="#1a1a1a" stroke-width="0.48" stroke-linecap="butt"/><path d="M14.74 46.37L16.24 44.79L17.82 43.29" fill="none" stroke="#1a1a1a" stroke-width="0.47" stroke-linecap="butt"/><path d="M16.52 46.42L17.26 45.81L17.87 45.07" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M26.31 42.47L27.04 41.79L27.72 41.06" fill="none" stroke="#1a1a1a" stroke-width="0.53" stroke-linecap="butt"/><path d="M26.36 44.25L27.93 42.68L29.50 41.11" fill="none" stroke="#1a1a1a" stroke-width="0.52" stroke-linecap="butt"/><path d="M26.42 45.96L27.96 44.31L29.64 42.79L31.21 41.17" fill="none" stroke="#1a1a1a" stroke-width="0.57" stroke-linecap="butt"/><path d="M27.77 46.29L29.66 44.41L31.54 42.52" fill="none" stroke="#1a1a1a" stroke-width="0.61" stroke-linecap="butt"/><path d="M29.28 46.31L30.42 45.17L31.56 44.03" fill="none" stroke="#1a1a1a" stroke-width="0.58" stroke-linecap="butt"/><path d="M18.84 26.65L22.10 26.75L25.38 26.65" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M25.36 26.72L25.28 29.95L25.43 33.19" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M18.80 33.20L22.04 33.27L25.38 33.19" fill="none" stroke="#1a1a1a" stroke-width="0.52" stroke-linecap="butt"/><path d="M18.87 26.62L18.84 30.01L18.77 33.28" fill="none" stroke="#1a1a1a" stroke-width="0.60" stroke-linecap="butt"/><path d="M11.86 40.48L15.21 40.38L18.51 40.44" fill="none" stroke="#1a1a1a" stroke-width="0.63" stroke-linecap="butt"/><path d="M18.50 40.45L18.46 43.83L18.55 46.99" fill="none" stroke="#1a1a1a" stroke-width="0.70" stroke-linecap="butt"/><path d="M11.93 47.01L15.22 46.99L18.46 47.01" fill="none" stroke="#1a1a1a" stroke-width="0.54" stroke-linecap="butt"/><path d="M11.93 40.44L11.86 43.80L11.94 47.04" fill="none" stroke="#1a1a1a" stroke-width="0.56" stroke-linecap="butt"/><path d="M25.65 40.44L28.90 40.41L32.25 40.47" fill="none" stroke="#1a1a1a" stroke-width="0.49" stroke-linecap="butt"/><path d="M32.31 40.52L32.34 43.83L32.35 47.03" fill="none" stroke="#1a1a1a" stroke-width="0.63" stroke-linecap="butt"/><path d="M25.72 47.09L28.95 46.99L32.28 47.09" fill="none" stroke="#1a1a1a" stroke-width="0.66" stroke-linecap="butt"/><path d="M25.76 40.49L25.81 43.65L25.67 47.04" fill="none" stroke="#1a1a1a" stroke-width="0.75" stroke-linecap="butt"/><path d="M4.90 19.58L8.12 19.63L11.18 19.61L14.17 19.66L17.26 19.54L20.52 19.66L23.73 19.74L26.84 19.50L29.84 19.74L33.02 19.66L36.08 19.67L39.31 19.60" fill="none" stroke="#1a1a1a" stroke-width="1.25" stroke-linecap="butt"/><path d="M4.85 19.56L4.87 22.73L4.97 25.74L4.77 29.01L4.82 32.11L4.87 35.41L4.92 38.44L4.95 41.62L4.76 44.78L4.96 47.75L4.74 50.84L4.90 54.04" fill="none" stroke="#1a1a1a" stroke-width="1.25" stroke-linecap="butt"/><path d="M4.79 26.51L7.89 26.53L11.01 26.53L14.15 26.63L17.39 26.63L20.50 26.47L23.79 26.56L26.68 26.50L29.87 26.51L33.08 26.54L36.31 26.58L39.34 26.50" fill="none" stroke="#1a1a1a" stroke-width="0.32" stroke-linecap="butt"/><path d="M11.78 19.56L11.82 22.84L11.67 25.80L11.63 28.89L11.77 32.25L11.76 35.25L11.73 38.34L11.87 41.42L11.70 44.72L11.63 47.95L11.88 51.01L11.79 54.14" fill="none" stroke="#1a1a1a" stroke-width="0.32" stroke-linecap="butt"/><path d="M4.90 33.38L7.96 33.28L11.08 33.40L14.28 33.53L17.45 33.34L20.62 33.32L23.55 33.29L26.75 33.37L29.98 33.35L33.08 33.39L36.13 33.43L39.42 33.38" fill="none" stroke="#1a1a1a" stroke-width="0.30" stroke-linecap="butt"/><path d="M18.61 19.66L18.56 22.75L18.69 25.92L18.77 28.90L18.52 32.05L18.77 35.42L18.53 38.56L18.73 41.44L18.53 44.63L18.69 47.76L18.67 51.03L18.58 54.07" fill="none" stroke="#1a1a1a" stroke-width="0.30" stroke-linecap="butt"/><path d="M4.91 40.30L7.97 40.37L11.16 40.26L14.26 40.29L17.33 40.42L20.56 40.30L23.70 40.17L26.70 40.42L29.98 40.26L32.95 40.29L36.28 40.19L39.38 40.37" fill="none" stroke="#1a1a1a" stroke-width="0.39" stroke-linecap="butt"/><path d="M25.51 19.58L25.42 22.70L25.58 25.80L25.51 29.06L25.45 32.16L25.60 35.16L25.65 38.47L25.51 41.43L25.65 44.82L25.49 47.91L25.55 50.90L25.57 54.04" fill="none" stroke="#1a1a1a" stroke-width="0.39" stroke-linecap="butt"/><path d="M4.81 47.14L7.97 47.09L11.26 47.11L14.33 47.31L17.37 47.32L20.51 47.25L23.65 47.33L26.71 47.28L29.81 47.21L33.07 47.07L36.08 47.25L39.35 47.12" fill="none" stroke="#1a1a1a" stroke-width="0.37" stroke-linecap="butt"/><path d="M32.37 19.63L32.36 22.87L32.37 25.90L32.36 29.07L32.56 32.19L32.38 35.15L32.56 38.46L32.37 41.45L32.40 44.71L32.31 47.80L32.42 51.07L32.41 54.18" fill="none" stroke="#1a1a1a" stroke-width="0.37" stroke-linecap="butt"/><path d="M4.81 54.09L8.00 54.13L11.20 54.09L14.32 54.04L17.38 54.06L20.52 54.22L23.58 54.11L26.70 53.99L29.85 54.06L33.18 54.14L36.13 54.16L39.43 54.11" fill="none" stroke="#1a1a1a" stroke-width="1.28" stroke-linecap="butt"/><path d="M39.43 19.59L39.46 22.60L39.28 26.00L39.48 29.02L39.33 32.16L39.48 35.17L39.43 38.40L39.42 41.64L39.39 44.73L39.27 47.86L39.37 50.92L39.29 54.13" fill="none" stroke="#1a1a1a" stroke-width="1.28" stroke-linecap="butt"/><path d="M22.10 34.29L23.35 34.82L23.56 36.36L22.93 36.87L22.62 38.29L23.87 38.69L23.85 39.44L20.33 38.70L21.60 38.30L21.29 36.89L20.60 36.40L20.85 34.85L22.13 34.28Z" fill="#1a1a1a"/><text class="c-nm" x="4.85" y="12.00" font-size="5.997" textLength="14.09" lengthAdjust="spacing">Saeta</text><path d="M41.07 4.86L41.02 8.37L41.19 11.63L40.91 15.04L41.11 18.40L41.00 21.67L40.96 25.04L41.07 28.33L41.01 31.73L41.01 35.02L41.14 38.46L41.21 41.94L41.10 45.25L41.09 48.60L40.97 51.75L41.17 55.31L41.02 58.63" fill="none" stroke="#1a1a1a" stroke-width="0.95" stroke-linecap="butt"/><g transform="rotate(-0.10 63.40 7.35)"><path d="M42.69 4.54L48.48 4.48L54.69 4.48L60.53 4.59L66.38 4.59L72.29 4.66L78.02 4.47L83.92 4.62L83.87 5.31L83.92 6.07L83.87 7.00L84.01 7.57L83.99 8.72L84.11 9.50L84.18 10.30L78.34 10.32L72.18 10.07L66.43 9.98L60.50 9.98L54.73 10.18L48.84 10.12L42.65 9.97L42.85 9.34L42.61 8.73L42.61 7.71L42.80 6.78L42.88 6.21L42.69 5.18Z" fill="#1a1a1a"/></g><g transform="rotate(-0.10 63.40 7.35)"><text class="c-bar" x="63.40" y="8.44" font-size="3.104" textLength="17.97" lengthAdjust="spacing" text-anchor="middle">ATACAR</text></g><text class="c-atx" x="42.75" y="15.22" font-size="3.704" textLength="37.65" lengthAdjust="spacing"><tspan font-weight="700">Héroe:</tspan>&#160;2&#160;de&#160;daño,&#160;<tspan font-weight="700">a</tspan>&#160;<tspan font-weight="700">2</tspan>&#160;<tspan font-weight="700">o</tspan></text><text class="c-atx" x="45.95" y="19.66" font-size="3.704" textLength="21.30" lengthAdjust="spacing"><tspan font-weight="700">menos</tspan>,&#160;<tspan font-weight="700">LdV</tspan>.</text><text class="c-atx" x="42.75" y="24.81" font-size="3.704" textLength="31.16" lengthAdjust="spacing"><tspan font-weight="700">Esbirro:</tspan>&#160;1&#160;de&#160;daño,</text><text class="c-atx" x="45.95" y="29.25" font-size="3.704" textLength="17.80" lengthAdjust="spacing"><tspan font-weight="700">adyacente</tspan>.</text></svg>
+          <figcaption class="slug">Saeta &middot; hoja II &middot; 63,5 &#215; 88,9 mm</figcaption>
+        </figure>
+        <div>
+          <h3>Una carta, a tamaño real</h3>
+          <p>Esto es lo que sale de la impresora, al tamaño al que sale: 63,5 × 88,9 mm, el ancho de una funda. El texto va apaisado, así que giras la carta para leerla. Cada trazo, el marco tallado, el sello, las casillas rayadas y la pieza, sale del mismo código que dibuja la hoja entera.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="register" id="downloads" aria-labelledby="h-downloads">
+      <h2 id="h-downloads">Descarga las hojas</h2>
+      <p class="lede">Gratis de descargar, gratis de imprimir y gratis de enseñar. Imprime, recorta y juega esta noche.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Todo lo que tienes que imprimir</caption>
+          <thead>
+            <tr><th scope="col">Archivo</th><th scope="col">Formato</th><th scope="col">Extensión</th><th scope="col">Tamaño</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><a class="dl" href="../files/reliquary-cards.es.pdf" data-goatcounter-click="descarga/cards-pdf" data-goatcounter-title="Cards PDF [es]">Cartas de Reliquary28</a></th><td>PDF</td><td>4 hojas A4</td><td>372 KB</td></tr>
+            <tr><th scope="row"><a class="dl" href="../files/reliquary-booklet.es.pdf" data-goatcounter-click="descarga/booklet-pdf" data-goatcounter-title="Booklet PDF (imposed) [es]">Reglas de Reliquary28, cuadernillo A5 para doblar</a></th><td>PDF</td><td>1 hoja A4, 2 caras</td><td>199 KB</td></tr>
+            <tr><th scope="row"><a class="dl" href="../files/reliquary-booklet-pages.es.pdf" data-goatcounter-click="descarga/booklet-pages-pdf" data-goatcounter-title="Booklet PDF (single pages) [es]">Reglas de Reliquary28, cuatro páginas A5</a></th><td>PDF</td><td>4 páginas A5</td><td>200 KB</td></tr>
+            <tr class="lang"><td colspan="4">En inglés</td></tr>
+            <tr><th scope="row"><a class="dl" href="../files/reliquary-cards.pdf" data-goatcounter-click="descarga/cards-pdf" data-goatcounter-title="Cards PDF [en]">Reliquary28 cards</a></th><td>PDF</td><td>4 hojas A4</td><td>367 KB</td></tr>
+            <tr><th scope="row"><a class="dl" href="../files/reliquary-booklet.pdf" data-goatcounter-click="descarga/booklet-pdf" data-goatcounter-title="Booklet PDF (imposed) [en]">Reliquary28 rules, A5 booklet to fold</a></th><td>PDF</td><td>1 hoja A4, 2 caras</td><td>196 KB</td></tr>
+            <tr><th scope="row"><a class="dl" href="../files/reliquary-booklet-pages.pdf" data-goatcounter-click="descarga/booklet-pages-pdf" data-goatcounter-title="Booklet PDF (single pages) [en]">Reliquary28 rules, four A5 pages</a></th><td>PDF</td><td>4 páginas A5</td><td>197 KB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Son 36 cartas en total. La hoja I lleva los nueve movimientos genéricos. La hoja II, las nueve cartas únicas. La hoja III, las nueve facciones, y cada una lleva tu contador de PV y tus Esbirros abatidos. La hoja IV, los nueve Ritos, de los que eliges uno en la preparación.</p>
+
+      <h3>Las reglas, en cuadernillo</h3>
+      <p>Las reglas son cuatro páginas A5. Dentro van un diagrama de una partida a 9 × 9 ya preparada y los dos primeros turnos de un ciclo de cartas, carta a carta. Cuatro páginas, y son el juego entero. Vienen en dos archivos: las mismas palabras, los mismos diagramas y dos maneras de repartirlos por el papel.</p>
+      <dl class="modes formats">
+        <dt>Para imprimir y doblar</dt>
+        <dd>Una hoja A4 apaisada, por las dos caras, doblada una vez por la mitad. Si lo abres en pantalla se ve desordenado: las páginas van en el orden que pide el doblez, no en el que se lee.</dd>
+        <dt>Para leer en pantalla</dt>
+        <dd>Las mismas cuatro páginas, una por página A5, en orden de lectura. Para tableta, o para imprimir cuatro páginas A5 sueltas cuando no hay doble cara. Nada que doblar.</dd>
+      </dl>
+      <p class="caution">El cuadernillo pide una cosa que las hojas de cartas no piden nunca. Imprime <b>por las dos caras</b>, voltea por el <b>borde corto</b> y dobla por la mitad con la página 1 hacia fuera. Si te equivocas de borde, las páginas salen desordenadas. Doblarlas no lo arregla.</p>
+
+      <h3>O imprime desde el navegador</h3>
+      <p>Las hojas de cartas y el cuadernillo están publicados también como páginas web normales, así que puedes imprimirlos sin descargar nada. Aun así, si puedes, quédate con el PDF: sale al tamaño correcto sin tener que acertar con los ajustes del navegador.</p>
+      <div class="actions"><a class="btn" href="print/cards/" data-goatcounter-click="imprimir/cards" data-goatcounter-title="Browser print: cards [es]">Las hojas de cartas</a><a class="btn" href="print/booklet/" data-goatcounter-click="imprimir/booklet" data-goatcounter-title="Browser print: booklet [es]">El cuadernillo</a></div>
+      <p class="caution">Antes de imprimir desde el navegador, pon la escala al <b>100 %</b> y los márgenes en <b>Ninguno</b>, y desactiva «ajustar a la página». Por defecto, los navegadores ajustan la página y añaden márgenes propios. Eso reescala la hoja: las cartas salen a menos de 63,5 mm de ancho y ya no entran en la funda, y te das cuenta cuando ya las has recortado.</p>
+      <p class="credit">Los nombres de las cartas de las hojas van compuestos en JSL Blackletter, de Jeff Lee, incrustada entera y publicada junto a <a href="../files/JSL-Blackletter-readme.txt">su archivo readme</a>, como pide su licencia.</p>
+    </section>
+
+    <section class="register" id="printing" aria-labelledby="h-printing">
+      <h2 id="h-printing">Impresión</h2>
+      <p class="lede">Cinco minutos de cuidado aquí son la diferencia entre un mazo que entra en las fundas y otro que no.</p>
+      <ol class="press">
+        <li><b>Imprime al 100 %.</b> Tamaño real. Desactiva «ajustar a la página», «reducir páginas grandes» y cualquier opción de girar o centrar automáticamente. Las cartas están dibujadas a 63,5 × 88,9 mm, la medida que admiten las fundas normales. Cualquier escalado, incluso del 97 %, rompe ese ajuste.</li>
+        <li><b>No imprimas a doble cara, salvo el cuadernillo doblado.</b> No hay reversos: las hojas de cartas van a una sola cara. Si quieres reversos, imprime una segunda hoja como dorso y pégala detrás. El cuadernillo doblado es el único archivo que va por las dos caras de una hoja y se voltea por el borde corto. Si tu impresora no lo hace, llévate las cuatro páginas A5.</li>
+        <li><b>A4, en blanco y negro.</b> Todo el dibujo es línea pura, sin una gota de color, así que basta un cartucho monocromo.</li>
+        <li><b>Corta por las marcas.</b> Cada hoja es una cuadrícula de 3 × 3 con marcas de corte en los cuatro márgenes. Las cartas van borde con borde, así que cada línea de corte recorre la hoja entera, a lo ancho o a lo alto. Son ocho cortes por hoja, y una guillotina lo hace mucho mejor que unas tijeras.</li>
+        <li><b>Mide la primera carta antes de cortar las demás.</b> 63,5 mm de ancho por 88,9 mm de alto. Si se queda corta, la impresora ha escalado la página: corrige los ajustes y vuelve a imprimir en lugar de recortar a ojo.</li>
+        <li><b>De 200 a 300 g/m² para las cartas.</b> La cartulina más gruesa que trague tu impresora. También vale papel normal pegado sobre un respaldo, y el cuadernillo dobla mejor en papel corriente de 80 g/m².</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="colophon">
+    <div class="colophon-marks"><svg class="sigil" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" aria-label="Emblema de Llave"><path d="M24.76 26.67A23.43,23.43 0 1 1 71.62 26.67A23.43,23.43 0 1 1 24.76 26.67ZM40.36 26.67A7.84,7.84 0 1 1 56.03 26.67A7.84,7.84 0 1 1 40.36 26.67Z" fill="#1a1a1a" fill-rule="evenodd"/><path d="M39.58 46.70L45.52 46.63L51.04 46.90L56.24 47.03L56.22 63.86L56.25 80.45L56.58 98.03L50.66 97.47L45.50 98.14L39.82 97.63L40.18 80.41L40.07 63.73Z" fill="#1a1a1a"/><path d="M54.07 70.16L65.52 70.70L76.76 70.52L77.11 75.92L77.04 81.26L65.33 81.37L54.48 81.54L54.20 76.09Z" fill="#1a1a1a"/><path d="M54.30 85.66L62.63 85.97L70.28 85.87L70.49 91.68L70.65 96.79L62.78 96.66L54.28 97.15L54.07 91.38Z" fill="#1a1a1a"/></svg><svg class="sigil" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" aria-label="Emblema de Calavera"><path d="M21.86 50.52C21.86 17.80 34.44 8.99 50.17 8.99C65.90 8.99 78.49 17.80 78.49 50.52C78.49 66.25 70.94 73.80 67.16 77.58L67.16 93.31L33.18 93.31L33.18 77.58C29.41 73.80 21.86 66.25 21.86 50.52ZM27.52 42.34A9.12,9.12 0 1 0 45.77 42.34A9.12,9.12 0 1 0 27.52 42.34ZM54.58 42.34A9.12,9.12 0 1 0 72.82 42.34A9.12,9.12 0 1 0 54.58 42.34ZM50.17 55.55L56.78 68.77L43.57 68.77ZM35.58 78.20L37.59 78.20L37.59 93.31L35.58 93.31ZM42.37 78.20L44.38 78.20L44.38 93.31L42.37 93.31ZM49.17 78.20L51.18 78.20L51.18 93.31L49.17 93.31ZM55.96 78.20L57.98 78.20L57.98 93.31L55.96 93.31ZM62.76 78.20L64.77 78.20L64.77 93.31L62.76 93.31ZM33.18 77.26L67.16 77.26L67.16 79.46L33.18 79.46Z" fill="#1a1a1a" fill-rule="evenodd"/></svg></div>
+    <p class="slug"><b class="name">Reliquary28</b> &middot; hojas I a IV &middot; corta por las marcas &middot; imprime al cien por cien</p>
+    <p class="fine">Un juego de escaramuzas grimdark para dos, descendiente de Onitama y construido sobre geometría real de Onitama. Imprimirlo, jugarlo y enseñarlo no cuesta nada. La tipografía de los titulares es UnifrakturMaguntia, con licencia SIL Open Font License; los emblemas y los diagramas de movimiento salen del mismo código que las propias cartas.</p>
+  </footer>
+
+</div>
+</body>
+</html>
